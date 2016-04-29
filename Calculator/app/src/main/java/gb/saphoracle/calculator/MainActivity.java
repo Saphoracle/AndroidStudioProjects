@@ -8,6 +8,7 @@ import android.widget.TextView;
 
 import gb.saphoracle.calculator.listeners.ClearButtonListener;
 import gb.saphoracle.calculator.listeners.DecimalButtonListener;
+import gb.saphoracle.calculator.listeners.DeleteButtonListener;
 import gb.saphoracle.calculator.listeners.EqualsButtonListener;
 import gb.saphoracle.calculator.listeners.NumberButtonListener;
 import gb.saphoracle.calculator.listeners.OperatorButtonListener;
@@ -37,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
     public Button btEquals;
     public Button btDecimal;
     public Button btClear;
+    public Button btDelete;
 
     public TextView tvCount;
     public TextView tvResult;
@@ -71,6 +73,7 @@ public class MainActivity extends AppCompatActivity {
         btEquals = (Button) findViewById(R.id.btEquals);
         btDecimal = (Button) findViewById(R.id.btDecimal);
         btClear = (Button) findViewById(R.id.btClear);
+        btDelete = (Button) findViewById(R.id.btDelete);
 
         tvCount = (TextView) findViewById(R.id.tvCount);
         tvResult = (TextView) findViewById(R.id.tvResult);
@@ -113,6 +116,8 @@ public class MainActivity extends AppCompatActivity {
         new DecimalButtonListener(btDecimal, this);
 
         new ClearButtonListener(btClear, this);
+
+        new DeleteButtonListener(btDelete, this);
     }
 
 }

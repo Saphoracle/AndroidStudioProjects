@@ -82,9 +82,10 @@ public class Utility {
             ref.number1.append(value);
             ref.tvCount.setText(ref.number1);
         } else {
-            if (ref.equals)
-                ref.number2 = new StringBuilder(Double.toString(value));
-            else
+            if (ref.equals) {
+                ref.number2 = new StringBuilder(Integer.toString(value));
+                ref.equals = false;
+            } else
                 ref.number2.append(value);
             ref.tvCount.setText(Utility.formatLocaleString(ref.number1 +
                     " " +
