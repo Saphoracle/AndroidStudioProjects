@@ -47,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
     public int operator;
 
     public boolean beforeOp = true;
+    public boolean equals = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

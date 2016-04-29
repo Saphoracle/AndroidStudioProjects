@@ -22,6 +22,8 @@ public class EqualsButtonListener extends AbstractButtonListener {
         btObject.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                ref.equals = true;
+
                 if (ref.beforeOp && ref.number2.equals("")) {
                     return;
                 } else {

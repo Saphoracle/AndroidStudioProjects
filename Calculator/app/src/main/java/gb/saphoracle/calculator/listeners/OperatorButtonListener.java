@@ -26,7 +26,13 @@ public class OperatorButtonListener extends AbstractButtonListener {
         btObject.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 ref.operator = opID;
+                if (!ref.beforeOp) {
+                    Utility.calculate(ref.number1, ref.operator, ref.number2,
+                            ref);
+                }
+
                 ref.beforeOp = false;
                 ref.tvCount.setText(Utility.formatLocaleString(ref.number1 +
                         " " +
