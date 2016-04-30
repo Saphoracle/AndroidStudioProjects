@@ -8,11 +8,11 @@ import gb.saphoracle.calculator.utils.Utility;
 
 /**
  * <p></p>
- *
+ * <p/>
  * <p></p>
  *
  * @author Luke Beesley
- * @version v0.01
+ * @version v0.02
  * @since 29/04/2016
  */
 public class EqualsButtonListener extends AbstractButtonListener {
@@ -29,12 +29,11 @@ public class EqualsButtonListener extends AbstractButtonListener {
 
         ref.equals = true;
 
-        if (ref.beforeOp && ref.number2.equals("")) {
+        if (ref.beforeOp || ref.number2.toString().equals("")) {
             return;
         } else {
-            ref.beforeOp = true;
-            ref.number1.replace(0, ref.number1.length(), Double.toString(ref
-                    .result));
+            //            ref.beforeOp = true;
+            ref.number1 = new StringBuilder(Double.toString(ref.result));
 
             ref.tvCount.setText(Utility.formatLocaleString(ref.number1 +
                     " " +

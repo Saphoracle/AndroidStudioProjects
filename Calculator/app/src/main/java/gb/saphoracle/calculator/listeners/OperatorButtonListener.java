@@ -35,6 +35,11 @@ public class OperatorButtonListener extends AbstractButtonListener {
 
         ref.operator = opID;
         if (!ref.beforeOp) {
+            ref.tvCount.setText(Utility.formatLocaleString(ref.number1 +
+                    " " +
+                    Utility.parseOperator(ref.operator, ref) + "" +
+                    " " +
+                    ref.number2));
             if (ref.number2.toString().equals(""))
                 return;
             Utility.calculate(ref.number1, ref.operator, ref.number2, ref);
@@ -49,7 +54,7 @@ public class OperatorButtonListener extends AbstractButtonListener {
 
         if (!ref.beforeOp) {
             if (ref.number2.length() > 0) {
-                ref.number2 = new StringBuilder();
+     //           ref.number2 = new StringBuilder();
 
                 ref.tvCount.setText(Utility.formatLocaleString(ref.number1 +
                         " " +
