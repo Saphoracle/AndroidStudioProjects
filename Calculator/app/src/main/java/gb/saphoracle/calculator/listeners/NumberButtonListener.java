@@ -7,7 +7,13 @@ import gb.saphoracle.calculator.MainActivity;
 import gb.saphoracle.calculator.utils.Utility;
 
 /**
- * Created by lukeb on 29/04/2016.
+ * <p></p>
+ *
+ * <p></p>
+ *
+ * @author Luke Beesley
+ * @version v0.01
+ * @since 29/04/2016
  */
 public class NumberButtonListener extends AbstractButtonListener {
 
@@ -16,22 +22,12 @@ public class NumberButtonListener extends AbstractButtonListener {
     public NumberButtonListener(Button btObject, MainActivity ref, int number) {
         super(btObject, ref);
         this.number = number;
-
-        addListener();
     }
 
     @Override
-    protected void addListener() {
+    public void onClick(View v) {
+        Utility.updateValue(number, ref);
 
-        btObject.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Utility.updateValue(number, ref);
-
-                Utility.calculate(ref.number1, ref.operator, ref.number2, ref);
-            }
-        });
-
+        Utility.calculate(ref.number1, ref.operator, ref.number2, ref);
     }
-
 }

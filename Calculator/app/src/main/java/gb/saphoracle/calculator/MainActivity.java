@@ -2,7 +2,6 @@ package gb.saphoracle.calculator;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -16,11 +15,9 @@ import gb.saphoracle.calculator.listeners.ZeroButtonListener;
 
 public class MainActivity extends AppCompatActivity {
 
-    private final int DIVIDE = 4;
-    private final int MULTIPLY = 3;
-    private final int SUBTRACT = 2;
-    private final int ADD = 1;
-
+    /*
+    Create references to the UI objects within the .xml file
+     */
     public Button btZero;
     public Button btOne;
     public Button btTwo;
@@ -43,11 +40,18 @@ public class MainActivity extends AppCompatActivity {
     public TextView tvCount;
     public TextView tvResult;
 
+    /*
+    Store the values for the inputs, operator and product of the calculation
+    performed
+     */
     public StringBuilder number1 = new StringBuilder();
     public StringBuilder number2 = new StringBuilder();
     public double result;
     public int operator;
 
+    /*
+    Check values to determine what part of the calculation we are currently in
+     */
     public boolean beforeOp = true;
     public boolean equals = false;
 
@@ -56,6 +60,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        /*
+        We need to find and assign the .xml UI objects to the java objects to
+         allow functionality to be performed with them.
+         */
         btZero = (Button) findViewById(R.id.btZero);
         btOne = (Button) findViewById(R.id.btOne);
         btTwo = (Button) findViewById(R.id.btTwo);
@@ -78,46 +86,57 @@ public class MainActivity extends AppCompatActivity {
         tvCount = (TextView) findViewById(R.id.tvCount);
         tvResult = (TextView) findViewById(R.id.tvResult);
 
+        /*
+        Add the listeners to the buttons used in the UI
+         */
         addButtonListeners();
     }
 
     private void addButtonListeners() {
+        final int DIVIDE = 4;
+        final int MULTIPLY = 3;
+        final int SUBTRACT = 2;
+        final int ADD = 1;
 
-        new ZeroButtonListener(btZero, this);
+        btZero.setOnClickListener(new ZeroButtonListener(btZero, this));
 
-        new NumberButtonListener(btOne, this, 1);
+        btOne.setOnClickListener(new NumberButtonListener(btOne, this, 1));
 
-        new NumberButtonListener(btTwo, this, 2);
+        btTwo.setOnClickListener(new NumberButtonListener(btTwo, this, 2));
 
-        new NumberButtonListener(btThree, this, 3);
+        btThree.setOnClickListener(new NumberButtonListener(btThree, this, 3));
 
-        new NumberButtonListener(btFour, this, 4);
+        btFour.setOnClickListener(new NumberButtonListener(btFour, this, 4));
 
-        new NumberButtonListener(btFive, this, 5);
+        btFive.setOnClickListener(new NumberButtonListener(btFive, this, 5));
 
-        new NumberButtonListener(btSix, this, 6);
+        btSix.setOnClickListener(new NumberButtonListener(btSix, this, 6));
 
-        new NumberButtonListener(btSeven, this, 7);
+        btSeven.setOnClickListener(new NumberButtonListener(btSeven, this, 7));
 
-        new NumberButtonListener(btEight, this, 8);
+        btEight.setOnClickListener(new NumberButtonListener(btEight, this, 8));
 
-        new NumberButtonListener(btNine, this, 9);
+        btNine.setOnClickListener(new NumberButtonListener(btNine, this, 9));
 
-        new OperatorButtonListener(btDivide, this, DIVIDE);
+        btDivide.setOnClickListener(new OperatorButtonListener(btDivide,
+                this, DIVIDE));
 
-        new OperatorButtonListener(btMultiply, this, MULTIPLY);
+        btMultiply.setOnClickListener(new OperatorButtonListener(btMultiply,
+                this, MULTIPLY));
 
-        new OperatorButtonListener(btSubtract, this, SUBTRACT);
+        btSubtract.setOnClickListener(new OperatorButtonListener(btSubtract,
+                this, SUBTRACT));
 
-        new OperatorButtonListener(btAdd, this, ADD);
+        btAdd.setOnClickListener(new OperatorButtonListener(btAdd, this, ADD));
 
-        new EqualsButtonListener(btEquals, this);
+        btEquals.setOnClickListener(new EqualsButtonListener(btEquals, this));
 
-        new DecimalButtonListener(btDecimal, this);
+        btDecimal.setOnClickListener(new DecimalButtonListener(btDecimal,
+                this));
 
-        new ClearButtonListener(btClear, this);
+        btClear.setOnClickListener(new ClearButtonListener(btClear, this));
 
-        new DeleteButtonListener(btDelete, this);
+        btDelete.setOnClickListener(new DeleteButtonListener(btDelete, this));
     }
 
 }
