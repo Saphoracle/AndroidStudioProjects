@@ -1,0 +1,3 @@
+CHANGED,E:\AndroidStudioProjects\Application\app\build\intermediates\transforms\instantRun\debug\folders\4000\5\enhanced\saphoracle\application\com\MyActivity$override.class
+CHANGED,E:\AndroidStudioProjects\Application\app\build\intermediates\transforms\instantRun\debug\folders\4000\5\enhanced\saphoracle\application\com\MyActivity$1$override.class
+CHANGED,E:\AndroidStudioProjects\Application\app\build\intermediates\transforms\instantRun\debug\folders\4000\5\enhanced\com\android\tools\fd\runtime\AppPatchesLoaderImpl.class
