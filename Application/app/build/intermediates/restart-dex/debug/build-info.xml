@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<instant-run
+    abi="x86"
+    api-level="23"
+    density="560dpi"
+    format="7"
+    timestamp="510611238095869" >
+
+    <task
+        name="javac"
+        duration="133" />
+    <task
+        name="instant-run-dex"
+        duration="0" />
+    <task
+        name="instant-run-transform"
+        duration="32" />
+    <task
+        name="verifier"
+        duration="4" />
+
+    <artifact
+        location="E:\AndroidStudioProjects\Application\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_8\classes.dex"
+        type="DEX" />
+    <artifact
+        location="E:\AndroidStudioProjects\Application\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_7\classes.dex"
+        type="DEX" />
+    <artifact
+        location="E:\AndroidStudioProjects\Application\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_9\classes.dex"
+        type="DEX" />
+    <artifact
+        location="E:\AndroidStudioProjects\Application\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-animated-vector-drawable-23.3.0_52d62bd36e94cb2781f0d70e1abd56eb06b7a155\classes.dex"
+        type="DEX" />
+    <artifact
+        location="E:\AndroidStudioProjects\Application\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-23.3.0_4c5f981af89b351bfd95cd8f7b1fdae9e20e0afc\classes.dex"
+        type="DEX" />
+    <artifact
+        location="E:\AndroidStudioProjects\Application\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_77fc6344050ce0644a20b3695acda7822ecc3eab\classes.dex"
+        type="DEX" />
+    <artifact
+        location="E:\AndroidStudioProjects\Application\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-23.3.0_4b8b826ab6ab7203e4b8221de4246d0ef9f95011\classes.dex"
+        type="DEX" />
+    <artifact
+        location="E:\AndroidStudioProjects\Application\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-vector-drawable-23.3.0_cbd01efdefc0dc2ba348b8c7c545e1cfe93f43ce\classes.dex"
+        type="DEX" />
+    <artifact
+        location="E:\AndroidStudioProjects\Application\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_e375e0e05e5388f7a2ffda466f85def254117c8d\classes.dex"
+        type="DEX" />
+    <artifact
+        location="E:\AndroidStudioProjects\Application\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-appcompat-v7-23.3.0_28168033e4984aea3116a044f32a1885ccd49299\classes.dex"
+        type="DEX" />
+    <artifact
+        location="E:\AndroidStudioProjects\Application\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_6\classes.dex"
+        type="DEX" />
+    <artifact
+        location="E:\AndroidStudioProjects\Application\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_5\classes.dex"
+        type="DEX" />
+    <artifact
+        location="E:\AndroidStudioProjects\Application\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_4\classes.dex"
+        type="DEX" />
+    <artifact
+        location="E:\AndroidStudioProjects\Application\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-v4-23.3.0_b9fd8af37cc9b0b7ef1d886bb3aafef6cfd7f0a8\classes.dex"
+        type="DEX" />
+    <artifact
+        location="E:\AndroidStudioProjects\Application\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_1\classes.dex"
+        type="DEX" />
+    <artifact
+        location="E:\AndroidStudioProjects\Application\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_2\classes.dex"
+        type="DEX" />
+    <artifact
+        location="E:\AndroidStudioProjects\Application\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_0\classes.dex"
+        type="DEX" />
+    <artifact
+        location="E:\AndroidStudioProjects\Application\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_3\classes.dex"
+        type="DEX" />
+
+    <build timestamp="506170371912024" >
+        <artifact
+            location="E:\AndroidStudioProjects\Application\app\build\outputs\apk\app-debug.apk"
+            type="MAIN" />
+    </build>
+    <build timestamp="510611238095869" >
+        <artifact
+            location="E:\AndroidStudioProjects\Application\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_8\classes.dex"
+            type="DEX" />
+        <artifact
+            location="E:\AndroidStudioProjects\Application\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_7\classes.dex"
+            type="DEX" />
+        <artifact
+            location="E:\AndroidStudioProjects\Application\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_9\classes.dex"
+            type="DEX" />
+        <artifact
+            location="E:\AndroidStudioProjects\Application\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-animated-vector-drawable-23.3.0_52d62bd36e94cb2781f0d70e1abd56eb06b7a155\classes.dex"
+            type="DEX" />
+        <artifact
+            location="E:\AndroidStudioProjects\Application\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-23.3.0_4c5f981af89b351bfd95cd8f7b1fdae9e20e0afc\classes.dex"
+            type="DEX" />
+        <artifact
+            location="E:\AndroidStudioProjects\Application\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_77fc6344050ce0644a20b3695acda7822ecc3eab\classes.dex"
+            type="DEX" />
+        <artifact
+            location="E:\AndroidStudioProjects\Application\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-23.3.0_4b8b826ab6ab7203e4b8221de4246d0ef9f95011\classes.dex"
+            type="DEX" />
+        <artifact
+            location="E:\AndroidStudioProjects\Application\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-vector-drawable-23.3.0_cbd01efdefc0dc2ba348b8c7c545e1cfe93f43ce\classes.dex"
+            type="DEX" />
+        <artifact
+            location="E:\AndroidStudioProjects\Application\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_e375e0e05e5388f7a2ffda466f85def254117c8d\classes.dex"
+            type="DEX" />
+        <artifact
+            location="E:\AndroidStudioProjects\Application\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-appcompat-v7-23.3.0_28168033e4984aea3116a044f32a1885ccd49299\classes.dex"
+            type="DEX" />
+        <artifact
+            location="E:\AndroidStudioProjects\Application\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_6\classes.dex"
+            type="DEX" />
+        <artifact
+            location="E:\AndroidStudioProjects\Application\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_5\classes.dex"
+            type="DEX" />
+        <artifact
+            location="E:\AndroidStudioProjects\Application\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_4\classes.dex"
+            type="DEX" />
+        <artifact
+            location="E:\AndroidStudioProjects\Application\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-v4-23.3.0_b9fd8af37cc9b0b7ef1d886bb3aafef6cfd7f0a8\classes.dex"
+            type="DEX" />
+        <artifact
+            location="E:\AndroidStudioProjects\Application\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_1\classes.dex"
+            type="DEX" />
+        <artifact
+            location="E:\AndroidStudioProjects\Application\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_2\classes.dex"
+            type="DEX" />
+        <artifact
+            location="E:\AndroidStudioProjects\Application\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_0\classes.dex"
+            type="DEX" />
+        <artifact
+            location="E:\AndroidStudioProjects\Application\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_3\classes.dex"
+            type="DEX" />
+    </build>
+
+</instant-run>
