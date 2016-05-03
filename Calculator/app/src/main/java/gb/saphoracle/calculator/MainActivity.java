@@ -2,45 +2,68 @@ package gb.saphoracle.calculator;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import gb.saphoracle.calculator.listeners.ClearButtonListener;
+import gb.saphoracle.calculator.listeners.DecimalButtonListener;
+import gb.saphoracle.calculator.listeners.DeleteButtonListener;
+import gb.saphoracle.calculator.listeners.EqualsButtonListener;
+import gb.saphoracle.calculator.listeners.NumberButtonListener;
+import gb.saphoracle.calculator.listeners.OperatorButtonListener;
+import gb.saphoracle.calculator.listeners.ZeroButtonListener;
+
 public class MainActivity extends AppCompatActivity {
 
-    private Button btZero;
-    private Button btOne;
-    private Button btTwo;
-    private Button btThree;
-    private Button btFour;
-    private Button btFive;
-    private Button btSix;
-    private Button btSeven;
-    private Button btEight;
-    private Button btNine;
-    private Button btDivide;
-    private Button btMultiply;
-    private Button btSubtract;
-    private Button btAdd;
-    private Button btEquals;
-    private Button btDecimal;
-    private Button btClear;
+    /*
+    Create references to the UI objects within the .xml file
+     */
+    public Button btZero;
+    public Button btOne;
+    public Button btTwo;
+    public Button btThree;
+    public Button btFour;
+    public Button btFive;
+    public Button btSix;
+    public Button btSeven;
+    public Button btEight;
+    public Button btNine;
+    public Button btDivide;
+    public Button btMultiply;
+    public Button btSubtract;
+    public Button btAdd;
+    public Button btEquals;
+    public Button btDecimal;
+    public Button btClear;
+    public Button btDelete;
 
-    private TextView tvCount;
-    private TextView tvResult;
+    public TextView tvCount;
+    public TextView tvResult;
 
-    private StringBuilder number1 = new StringBuilder();
-    private StringBuilder number2 = new StringBuilder();
-    private double result;
-    private int operator;
+    /*
+    Store the values for the inputs, operator and product of the calculation
+    performed
+     */
+    public StringBuilder number1 = new StringBuilder();
+    public StringBuilder number2 = new StringBuilder();
+    public double result;
+    public int operator;
 
-    private boolean beforeOp = true;
+    /*
+    Check values to determine what part of the calculation we are currently in
+     */
+    public boolean beforeOp = true;
+    public boolean equals = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        /*
+        We need to find and assign the .xml UI objects to the java objects to
+         allow functionality to be performed with them.
+         */
         btZero = (Button) findViewById(R.id.btZero);
         btOne = (Button) findViewById(R.id.btOne);
         btTwo = (Button) findViewById(R.id.btTwo);
@@ -58,273 +81,62 @@ public class MainActivity extends AppCompatActivity {
         btEquals = (Button) findViewById(R.id.btEquals);
         btDecimal = (Button) findViewById(R.id.btDecimal);
         btClear = (Button) findViewById(R.id.btClear);
+        btDelete = (Button) findViewById(R.id.btDelete);
 
         tvCount = (TextView) findViewById(R.id.tvCount);
         tvResult = (TextView) findViewById(R.id.tvResult);
 
+        /*
+        Add the listeners to the buttons used in the UI
+         */
         addButtonListeners();
     }
 
     private void addButtonListeners() {
-        btZero.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (beforeOp)
-                    if (number1.length() == 0)
-                        return;
-                    else {
-                        number1.append('0');
-                        tvCount.setText(number1);
-                    }
-                else {
-                    if (number2.length() == 0)
-                        return;
-                    else {
-                        number2.append('0');
-                        tvCount.setText(number1 + " " + parseOperator
-                                (operator) + " " + number2);
-                    }
-                    calculate(number1, operator, number2);
-                }
-            }
-        });
+        final int DIVIDE = 4;
+        final int MULTIPLY = 3;
+        final int SUBTRACT = 2;
+        final int ADD = 1;
 
-        btOne.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                updateValue(1);
-                calculate(number1, operator, number2);
-            }
-        });
+        btZero.setOnClickListener(new ZeroButtonListener(btZero, this));
 
-        btTwo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                updateValue(2);
-                calculate(number1, operator, number2);
-            }
-        });
+        btOne.setOnClickListener(new NumberButtonListener(btOne, this, 1));
 
-        btThree.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                updateValue(3);
-                calculate(number1, operator, number2);
-            }
-        });
+        btTwo.setOnClickListener(new NumberButtonListener(btTwo, this, 2));
 
-        btFour.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                updateValue(4);
-                calculate(number1, operator, number2);
-            }
-        });
+        btThree.setOnClickListener(new NumberButtonListener(btThree, this, 3));
 
-        btFive.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                updateValue(5);
-                calculate(number1, operator, number2);
-            }
-        });
+        btFour.setOnClickListener(new NumberButtonListener(btFour, this, 4));
 
-        btSix.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                updateValue(6);
-                calculate(number1, operator, number2);
-            }
-        });
+        btFive.setOnClickListener(new NumberButtonListener(btFive, this, 5));
 
-        btSeven.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                updateValue(7);
-                calculate(number1, operator, number2);
-            }
-        });
+        btSix.setOnClickListener(new NumberButtonListener(btSix, this, 6));
 
-        btEight.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                updateValue(8);
-                calculate(number1, operator, number2);
-            }
-        });
+        btSeven.setOnClickListener(new NumberButtonListener(btSeven, this, 7));
 
-        btNine.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                updateValue(9);
-                calculate(number1, operator, number2);
-            }
-        });
+        btEight.setOnClickListener(new NumberButtonListener(btEight, this, 8));
 
-        btDivide.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                operator = 4;
-                beforeOp = false;
-                tvCount.setText(number1 + " " + parseOperator
-                        (operator) + " " + number2);
-            }
-        });
+        btNine.setOnClickListener(new NumberButtonListener(btNine, this, 9));
 
-        btMultiply.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                operator = 3;
-                beforeOp = false;
-                tvCount.setText(number1 + " " + parseOperator
-                        (operator) + " " + number2);
-            }
-        });
+        btDivide.setOnClickListener(new OperatorButtonListener(btDivide,
+                this, DIVIDE));
 
-        btSubtract.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                operator = 2;
-                beforeOp = false;
-                tvCount.setText(number1 + " " + parseOperator
-                        (operator) + " " + number2);
-            }
-        });
+        btMultiply.setOnClickListener(new OperatorButtonListener(btMultiply,
+                this, MULTIPLY));
 
-        btAdd.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                operator = 1;
-                beforeOp = false;
-                tvCount.setText(number1 + " " + parseOperator
-                        (operator) + " " + number2);
-            }
-        });
+        btSubtract.setOnClickListener(new OperatorButtonListener(btSubtract,
+                this, SUBTRACT));
 
-        btEquals.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                beforeOp = true;
-                number1.replace(0, number1.length(), Double.toString(result));
-                tvCount.setText(number1 + " " + parseOperator
-                        (operator) + " " + number2);
-                calculate(number1, operator, number2);
+        btAdd.setOnClickListener(new OperatorButtonListener(btAdd, this, ADD));
 
-            }
-        });
+        btEquals.setOnClickListener(new EqualsButtonListener(btEquals, this));
 
-        btDecimal.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (beforeOp)
-                    if (number1.length() == 0) {
-                        number1.append("0.");
-                    } else {
-                        if (number1.indexOf(".") == -1)
-                            number1.append('.');
-                        else
-                            number1 = new StringBuilder(number1.substring(0,
-                                    number1.indexOf(".")) + number1
-                                    .substring(number1.indexOf(".") +
-                                            1) + ".");
-                        tvCount.setText(number1);
-                    }
-                else {
-                    if (number2.length() == 0) {
-                        number2.append("0.");
-                    } else {
-                        if (number2.indexOf(".") == -1)
-                            number2.append('.');
-                        else
-                        number2 = new StringBuilder(number2.substring(0,
-                                number2.indexOf(".")) +
-                                number2.substring(number2.indexOf(".") + 1) +
-                                ".");
-                        tvCount.setText(number1 + " " + parseOperator
-                                (operator) + " " + number2);
-                    }
-                    calculate(number1, operator, number2);
-                }
-            }
-        });
+        btDecimal.setOnClickListener(new DecimalButtonListener(btDecimal,
+                this));
 
-        btClear.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                beforeOp = true;
-                number1 = new StringBuilder();
-                number2 = new StringBuilder();
-                operator = 0;
+        btClear.setOnClickListener(new ClearButtonListener(btClear, this));
 
-                tvCount.setText("");
-                tvResult.setText("");
-            }
-        });
+        btDelete.setOnClickListener(new DeleteButtonListener(btDelete, this));
     }
-
-    private void updateValue(int value) {
-        if (beforeOp) {
-            number1.append(value);
-            tvCount.setText(number1);
-        } else {
-            number2.append(value);
-            tvCount.setText(number1 + " " + parseOperator
-                    (operator) + " " + number2);
-        }
-    }
-
-    private char parseOperator(int operator) {
-        switch (operator) {
-            // ADD
-            case 1:
-                return '+';
-            // SUBTRACT
-            case 2:
-                return '-';
-            // MULTIPLY
-            case 3:
-                return '*';
-            // DIVIDE
-            case 4:
-                return '/';
-            // DEFAULT - This should be impossible to execute
-            default:
-                tvResult.setText("#ERROR");
-                return '#';
-        }
-    }
-
-
-    private void calculate(StringBuilder string1, int operator, StringBuilder
-            string2) {
-        if (beforeOp && number2.toString() == "")
-            return;
-        double number1 = Double.parseDouble(string1.toString());
-        double number2 = Double.parseDouble(string2.toString());
-        switch (operator) {
-            // ADD
-            case 1:
-                result = number1 + number2;
-                break;
-            // SUBTRACT
-            case 2:
-                result = number1 - number2;
-                break;
-            // MULTIPLY
-            case 3:
-                result = number1 * number2;
-                break;
-            // DIVIDE
-            case 4:
-                result = number1 / number2;
-                break;
-            // DEFAULT - This should be impossible to execute
-            default:
-                tvResult.setText("#ERROR");
-                return;
-        }
-        tvResult.setText(Double.toString(result));
-    }
-
 
 }
